@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh 'mvn --version'
             }
-        }
+        },
         stage('build') {
             steps {
                 echo "bharadwaj"
