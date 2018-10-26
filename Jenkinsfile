@@ -11,29 +11,23 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath'), usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath1')]) {
-    // some block
-                      echo 'Testing..'
-            } 
+             parallel linux: {
+              node('linux') {
+                 checkout scm
+                 try {
+                        unstash 'app'
+                       sh 'make check'
+                   }
+                      finally {
+                     junit '**/target/*.xml'
+                 }
+             }
+            },
+              windows: {
+               node('windows') {
+                   /* .. snip .. */
+               }
             }
-  parallel linux: {
-    node('linux') {
-        checkout scm
-        try {
-            unstash 'app'
-            sh 'make check'
-        }
-        finally {
-            junit '**/target/*.xml'
-        }
-    }
-  },
-   windows: {
-    node('windows') {
-        /* .. snip .. */
-    }
- }
         }
         
         stage('Deploy') {
