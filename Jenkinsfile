@@ -27,6 +27,7 @@ pipeline {
         }
          stage('Example') {
             steps {
+                mail to: bharadwaj.ambati@itpeoplecorp.com, subject: 'The Pipeline failed :('
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
@@ -39,17 +40,7 @@ pipeline {
             }
         }
         
-    }
-    
-    
-     post {
-        always {
-            junit '**/target/*.xml'
-        }
-        failure {
-            mail to: bharadwaj.ambati@itpeoplecorp.com, subject: 'The Pipeline failed :('
-        }
-    }
+    }  
     
     
 }
