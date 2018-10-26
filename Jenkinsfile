@@ -6,12 +6,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                
                 echo 'Building..'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                withCredentials([usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath'), usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath1')]) {
+    // some block
+                      echo 'Testing..'
+}
+              
             }
         }
         
