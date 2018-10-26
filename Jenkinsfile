@@ -3,7 +3,11 @@ pipeline {
     environment { 
         CC = 'clang'
     }
-
+ 
+        environment {
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+    }    
     stages {
         stage('Build') {
             steps {
@@ -34,11 +38,7 @@ pipeline {
                 echo env.DEBUG_FLAGS
             }
         }
-        
-        environment {
-        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
-    }    
+       
         
     }
 }
