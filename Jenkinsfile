@@ -19,8 +19,8 @@ pipeline {
                        sh 'make check'
                    }
                       finally {
-                   //  junit '**///target/*.xml'
-                 }
+                    junit '**///target/*.xml'
+               /*  }
              }
             },
               windows: {
