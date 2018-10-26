@@ -36,12 +36,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                 stages {
-                     stage('Build') {
-                     steps {     
-                      echo 'Building..'
-            }
-        }
                 }
             }
         }
