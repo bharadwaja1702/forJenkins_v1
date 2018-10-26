@@ -36,12 +36,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                 stages {
+                     stage('Build') {
+                     steps {     
+                      echo 'Building..'
             }
-            steps {
-                echo 'Deploying1....'
-            }
-            steps {
-                echo 'Deploying2....'
+        }
+                }
             }
         }
          stage('Example') {
