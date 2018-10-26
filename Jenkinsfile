@@ -27,7 +27,7 @@ pipeline {
         }
          stage('Example') {
             steps {
-                mail to: bharadwaj.ambati@itpeoplecorp.com, subject: 'The Pipeline failed :('
+                mail to bharadwaj.ambati@itpeoplecorp.com, subject: 'The Pipeline failed :('
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
