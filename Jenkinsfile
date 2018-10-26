@@ -15,9 +15,9 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath'), usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath1')]) {
     // some block
                       echo 'Testing..'
+            } 
             }
-                
-              parallel linux: {
+  parallel linux: {
     node('linux') {
         checkout scm
         try {
@@ -28,14 +28,12 @@ pipeline {
             junit '**/target/*.xml'
         }
     }
-},
-windows: {
+  },
+   windows: {
     node('windows') {
         /* .. snip .. */
     }
-}
-              
-            }
+ }
         }
         
         stage('Deploy') {
