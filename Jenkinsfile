@@ -15,7 +15,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath'), usernamePassword(credentialsId: 'first', passwordVariable: 'abcdefg', usernameVariable: 'bharath1')]) {
     // some block
                       echo 'Testing..'
-}
+            }
               
             }
         }
@@ -38,15 +38,18 @@ pipeline {
                 echo env.DEBUG_FLAGS
             }
         }
-         post {
+        
+    }
+    
+    
+     post {
         always {
             junit '**/target/*.xml'
         }
         failure {
-            mail to : bharadwaj.ambati@itpeoplecorp.com, subject: 'The Pipeline failed :('
+            mail to: team@example.com, subject: 'The Pipeline failed :('
         }
     }
-       
-        
-    }
+    
+    
 }
