@@ -30,7 +30,7 @@ pipeline {
                 DEBUG_FLAGS = '-g'
             }
             steps {
-                echo env.DEBUG_FLAGS
+                echo env
             }
         }
     }
