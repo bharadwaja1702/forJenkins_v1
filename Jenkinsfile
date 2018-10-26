@@ -38,6 +38,14 @@ pipeline {
                 echo env.DEBUG_FLAGS
             }
         }
+         post {
+        always {
+            junit '**/target/*.xml'
+        }
+        failure {
+            mail to: bharadwaj.ambati@itpeoplecorp.com, subject: 'The Pipeline failed :('
+        }
+    }
        
         
     }
