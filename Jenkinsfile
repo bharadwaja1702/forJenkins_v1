@@ -15,14 +15,7 @@ pipeline {
                 echo 'Testing..'
             }
         }
-         stage('Example1') {
-            environment { 
-                DEBUG_FLAGS = '-g'
-            }
-            steps {
-                echo env
-            }
-        }
+        
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
@@ -31,6 +24,14 @@ pipeline {
          stage('Example') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+        }
+         stage('Example1') {
+            environment { 
+                DEBUG_FLAGS = '-g'
+            }
+            steps {
+                echo env.DEBUG_FLAGS
             }
         }
         
