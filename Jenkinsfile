@@ -11,7 +11,7 @@ pipeline {
             }
         }
         stage('Test') {
-             parallel linux: {
+            /* parallel linux: {
               node('linux') {
                  checkout scm
                  try {
@@ -25,8 +25,11 @@ pipeline {
             },
               windows: {
                node('windows') {
-                   /* .. snip .. */
+                  
                }
+            }*/
+            steps {
+                echo 'Testing....'
             }
         }
         
