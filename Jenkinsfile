@@ -13,11 +13,6 @@ pipeline {
             echo 'Testing....'
           }
         }
-        stage('1') {
-          steps {
-            mail(subject: 'hey', body: 'sample jenkins mail', from: 'bharadwaj.ambati@itpeoplecorp.com', to: 'bharadwaj.ambati@itpeoplecorp.com')
-          }
-        }
         stage('2') {
           steps {
             echo 'mail send'
