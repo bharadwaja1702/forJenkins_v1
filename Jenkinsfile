@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                import javax.swing.*
                 JFrame jframe = new JFrame()
                  String answer = JOptionPane.showInputDialog(jframe, it)
                  jframe.dispose()
