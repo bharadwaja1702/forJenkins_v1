@@ -1,10 +1,14 @@
-node{
-    stages{
-        stage 'abc'{
-            echo "hello"
+node {
+    stage('Example') {
+        try {
+            sh 'exit 1'
         }
-        stage 'bcd'{
-            echo "world"
+        catch (exc) {
+            echo 'Something failed, I should sound the klaxons!'
+            throw
         }
+    }
+    stage('abc'){
+        echo 'hello world'
     }
 }
