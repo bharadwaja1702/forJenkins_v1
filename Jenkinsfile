@@ -6,12 +6,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                def prompt = {
-  JFrame jframe = new JFrame()
-  String answer = JOptionPane.showInputDialog(jframe, it)
-  jframe.dispose()
-  echo answer
-}
+                JFrame jframe = new JFrame()
+                 String answer = JOptionPane.showInputDialog(jframe, it)
+                 jframe.dispose()
+                 echo answer
                 echo 'Building..'
             }
         }
