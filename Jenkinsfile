@@ -6,12 +6,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                import javax.swing.*
-                JFrame jframe = new JFrame()
-                 String answer = JOptionPane.showInputDialog(jframe, it)
-                 jframe.dispose()
-                 echo answer
+               int a=5
+                if(a==5){
+                echo 'a'
+                }else{
                 echo 'Building..'
+                }
             }
         }
         stage('Test') {
