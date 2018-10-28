@@ -1,14 +1,9 @@
+
 node {
-    stage('Example') {
-        try {
-            sh 'exit 1'
+    /* Requires the Docker Pipeline plugin to be installed */
+    docker.image('node:7-alpine').inside {
+        stage('Test') {
+            sh 'node --version'
         }
-        catch (exc) {
-            echo 'Something failed, I should sound the klaxons!'
-        }
-    }
-    stage('abc'){
-        def a=10
-        echo a
     }
 }
