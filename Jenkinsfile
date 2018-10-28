@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               int a=5;
+               def a=5;
                 if(a==5){
                 echo 'a'
                 }else{
