@@ -8,6 +8,7 @@ node {
         }
     }
     stage('abc'){
-        echo 'hello world'
+        def a=10
+        echo a
     }
 }
